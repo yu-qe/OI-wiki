@@ -38,9 +38,10 @@ author: Marcythm, Ir1d, Ycrpro, Xeonacid, konnyakuxzy, CJSoft, HeRaNO, ethan-enh
         d[p] = a[s];
         return;
       }
-      int m = s + ((t - s) >> 1);
+      int m = (s+t)>>1;
+      //int m = s + ((t - s) >> 1);
       // 移位运算符的优先级小于加减法，所以加上括号
-      // 如果写成 (s + t) >> 1 可能会超出 int 范围
+      // 如果可能会超出 int 范围，你使用注释的代码
       build(s, m, p * 2), build(m + 1, t, p * 2 + 1);
       // 递归对左右区间建树
       d[p] = d[p * 2] + d[(p * 2) + 1];
